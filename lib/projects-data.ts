@@ -26,7 +26,7 @@ export const workProjects = [
             es: "Paneles interactivos construidos with operaciones CRUD y filtros. Tienda Redux optimizada diseñada para gestionar el estado global eficientemente e integración backend.",
         },
         technologies: ["React", "Redux Toolkit", "Material UI", "TailwindCSS"],
-        liveUrl: "https://customer.evicare-dev.testing.techhive.dev/",
+        liveUrl: "https://customer-evicare-beta2.evicare.co",
         githubUrl: null,
         category: {
             en: "Healthcare Dashboard",
