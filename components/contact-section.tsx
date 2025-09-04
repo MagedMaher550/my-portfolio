@@ -1,66 +1,98 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { Label } from "@/components/ui/label"
-import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react"
-import { useLanguage } from "@/contexts/language-context"
+import { useState } from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
+import { useLanguage } from "@/contexts/language-context";
 
 export function ContactSection() {
-  const { t, isRTL } = useLanguage()
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const { t, isRTL } = useLanguage();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
-  })
+  });
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
+    e.preventDefault();
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // Reset form
-    setFormData({ name: "", email: "", message: "" })
-    setIsSubmitting(false)
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
 
-    // In a real app, you would send the data to your backend
-    alert(t.contact.form.success)
-  }
+      // Reset form on success
+      setFormData({ name: "", email: "", message: "" });
+      alert(t.contact.form.success);
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData((prev) => ({
       ...prev,
       [e.target.name]: e.target.value,
-    }))
-  }
+    }));
+  };
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.contact.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.contact.subtitle}</p>
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+            {t.contact.title}
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t.contact.subtitle}
+          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <Card>
             <CardHeader>
-              <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>{t.contact.form.title}</CardTitle>
-              <CardDescription className={isRTL ? "text-right" : ""}>{t.contact.form.description}</CardDescription>
+              <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>
+                {t.contact.form.title}
+              </CardTitle>
+              <CardDescription className={isRTL ? "text-right" : ""}>
+                {t.contact.form.description}
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <Label htmlFor="name" className={isRTL ? "text-right block" : ""}>
+                  <Label
+                    htmlFor="name"
+                    className={isRTL ? "text-right block" : ""}
+                  >
                     {t.contact.form.name}
                   </Label>
                   <Input
@@ -76,7 +108,10 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="email" className={isRTL ? "text-right block" : ""}>
+                  <Label
+                    htmlFor="email"
+                    className={isRTL ? "text-right block" : ""}
+                  >
                     {t.contact.form.email}
                   </Label>
                   <Input
@@ -92,7 +127,10 @@ export function ContactSection() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className={isRTL ? "text-right block" : ""}>
+                  <Label
+                    htmlFor="message"
+                    className={isRTL ? "text-right block" : ""}
+                  >
                     {t.contact.form.message}
                   </Label>
                   <Textarea
@@ -119,7 +157,9 @@ export function ContactSection() {
                     </>
                   ) : (
                     <>
-                      <Send className={`h-4 w-4 mr-2 ${isRTL ? "mr-0 ml-2" : ""}`} />
+                      <Send
+                        className={`h-4 w-4 mr-2 ${isRTL ? "mr-0 ml-2" : ""}`}
+                      />
                       {t.contact.form.send}
                     </>
                   )}
@@ -133,15 +173,23 @@ export function ContactSection() {
             {/* Contact Details */}
             <Card>
               <CardHeader>
-                <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>{t.contact.info.title}</CardTitle>
+                <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>
+                  {t.contact.info.title}
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className={`flex items-center gap-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+                <div
+                  className={`flex items-center gap-4 ${
+                    isRTL ? "flex-row-reverse" : ""
+                  }`}
+                >
                   <div className="flex-shrink-0">
                     <Mail className="h-5 w-5 text-accent" />
                   </div>
                   <div className={isRTL ? "text-right" : ""}>
-                    <p className="font-medium text-foreground">{t.contact.info.email}</p>
+                    <p className="font-medium text-foreground">
+                      {t.contact.info.email}
+                    </p>
                     <a
                       href="mailto:magedmaher602@gmail.com"
                       className="text-muted-foreground hover:text-accent transition-colors"
@@ -151,24 +199,39 @@ export function ContactSection() {
                   </div>
                 </div>
 
-                <div className={`flex items-center gap-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+                <div
+                  className={`flex items-center gap-4 ${
+                    isRTL ? "flex-row-reverse" : ""
+                  }`}
+                >
                   <div className="flex-shrink-0">
                     <Phone className="h-5 w-5 text-accent" />
                   </div>
                   <div className={isRTL ? "text-right" : ""}>
-                    <p className="font-medium text-foreground">{t.contact.info.phone}</p>
-                    <a href="tel:+201017459123" className="text-muted-foreground hover:text-accent transition-colors">
+                    <p className="font-medium text-foreground">
+                      {t.contact.info.phone}
+                    </p>
+                    <a
+                      href="tel:+201017459123"
+                      className="text-muted-foreground hover:text-accent transition-colors"
+                    >
                       +20 1017459123
                     </a>
                   </div>
                 </div>
 
-                <div className={`flex items-center gap-4 ${isRTL ? "flex-row-reverse" : ""}`}>
+                <div
+                  className={`flex items-center gap-4 ${
+                    isRTL ? "flex-row-reverse" : ""
+                  }`}
+                >
                   <div className="flex-shrink-0">
                     <MapPin className="h-5 w-5 text-accent" />
                   </div>
                   <div className={isRTL ? "text-right" : ""}>
-                    <p className="font-medium text-foreground">{t.contact.info.location}</p>
+                    <p className="font-medium text-foreground">
+                      {t.contact.info.location}
+                    </p>
                     <p className="text-muted-foreground">Alexandria, Egypt</p>
                   </div>
                 </div>
@@ -178,7 +241,9 @@ export function ContactSection() {
             {/* Social Links */}
             <Card>
               <CardHeader>
-                <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>{t.contact.social.title}</CardTitle>
+                <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>
+                  {t.contact.social.title}
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="flex gap-4">
@@ -211,18 +276,43 @@ export function ContactSection() {
             {/* Quick Actions */}
             <Card>
               <CardHeader>
-                <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>{t.contact.actions.title}</CardTitle>
+                <CardTitle className={`text-xl ${isRTL ? "text-right" : ""}`}>
+                  {t.contact.actions.title}
+                </CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
-                  <a href="mailto:magedmaher602@gmail.com">
-                    <Mail className={`h-4 w-4 mr-2 ${isRTL ? "mr-0 ml-2" : ""}`} />
-                    {t.contact.actions.email}
-                  </a>
+                <Button
+                  variant="outline"
+                  className="w-full justify-start bg-transparent cursor-pointer"
+                  onClick={() => {
+                    const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+                    if (isMobile) {
+                      // Open default mail app on mobile
+                      window.location.href = "mailto:magedmaher602@gmail.com";
+                    } else {
+                      // Open Gmail compose in browser on desktop
+                      window.open(
+                        "https://mail.google.com/mail/?view=cm&to=magedmaher602@gmail.com",
+                        "_blank"
+                      );
+                    }
+                  }}
+                >
+                  <Mail
+                    className={`h-4 w-4 mr-2 ${isRTL ? "mr-0 ml-2" : ""}`}
+                  />
+                  {t.contact.actions.email}
                 </Button>
-                <Button variant="outline" className="w-full justify-start bg-transparent" asChild>
+
+                <Button
+                  variant="outline"
+                  className="w-full justify-start bg-transparent"
+                  asChild
+                >
                   <a href="tel:+201017459123">
-                    <Phone className={`h-4 w-4 mr-2 ${isRTL ? "mr-0 ml-2" : ""}`} />
+                    <Phone
+                      className={`h-4 w-4 mr-2 ${isRTL ? "mr-0 ml-2" : ""}`}
+                    />
                     {t.contact.actions.call}
                   </a>
                 </Button>
@@ -232,5 +322,5 @@ export function ContactSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
