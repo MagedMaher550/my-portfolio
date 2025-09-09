@@ -62,7 +62,7 @@ export function AboutSection() {
             </Card>
 
             {/* Profile Image Placeholder */}
-            <Card>
+            {/* <Card>
               <CardContent className="p-6">
                 <div className="aspect-square bg-muted rounded-lg flex items-center justify-center">
                   <div className="text-center">
@@ -73,7 +73,7 @@ export function AboutSection() {
                   </div>
                 </div>
               </CardContent>
-            </Card>
+            </Card> */}
           </div>
         </div>
       </div>
