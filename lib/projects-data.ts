@@ -111,6 +111,25 @@ export const personalProjects = [
         },
     },
     {
+        title: "Code-Quest Dashboard",
+        description: {
+            en: "Developed a comprehensive dashboard application using a dummy API (JSON Placeholder). Implemented pagination, error handling, notifications, dummy authentication via localStorage, state management, CRUD operations, and dynamic UI components including modals and menus.",
+            ar: "تطوير تطبيق لوحة تحكم متكامل باستخدام واجهة برمجة تطبيقات وهمية (JSON Placeholder). تنفيذ الترقيم، ومعالجة الأخطاء، والإشعارات، والمصادقة الوهمية عبر LocalStorage، وإدارة الحالة، وعمليات CRUD، ومكونات واجهة مستخدم ديناميكية مثل النوافذ المنبثقة والقوائم.",
+            fr: "Développement d'une application de tableau de bord complète utilisant une API factice (JSON Placeholder). Mise en œuvre de la pagination, gestion des erreurs, notifications, authentification fictive via localStorage, gestion d'état, opérations CRUD et composants UI dynamiques tels que modaux et menus.",
+            es: "Desarrollo de una aplicación de panel integral utilizando una API ficticia (JSON Placeholder). Implementación de paginación, manejo de errores, notificaciones, autenticación ficticia mediante localStorage, gestión de estado, operaciones CRUD y componentes de UI dinámicos como modales y menús.",
+        },
+        technologies: ["React", "Material-UI", "JavaScript"],
+        liveUrl: "https://code-quest-henna.vercel.app",
+        githubUrl: "https://github.com/MagedMaher550/Code-Quest",
+        category: {
+            en: "Dashboard",
+            ar: "لوحة التحكم",
+            fr: "Tableau de bord",
+            es: "Panel de control",
+        },
+    }
+    ,
+    {
         title: "Roadn",
         description: {
             en: "Developed a mobile app for seamless customer transport across Egyptian cities and governates using Flutter for frontend and Node.js with MongoDB for backend.",
@@ -120,7 +139,7 @@ export const personalProjects = [
         },
         technologies: ["Flutter", "Node.js", "Express.js", "MongoDB"],
         liveUrl: null,
-        githubUrl: "https://github.com/MagedMaher550/roadn_api",
+        githubUrl: null,
         category: {
             en: "Mobile App",
             ar: "تطبيق محمول",
