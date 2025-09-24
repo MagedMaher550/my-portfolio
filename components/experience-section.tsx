@@ -21,10 +21,10 @@ const experiences = [
       es: "Alejandría, Egipto",
     },
     period: {
-      en: "Nov 2023 – Sep 2025",
-      ar: "نوفمبر 2023 – سبتمبر 2025",
-      fr: "Nov 2023 – Sep 2025",
-      es: "Nov 2023 – Sep 2025",
+      en: "Nov 2023 – present",
+      ar: "نوفمبر 2023 – حتي الآن",
+      fr: "Nov 2023 – présente",
+      es: "Nov 2023 – presente",
     },
     type: {
       en: "Full-time",
