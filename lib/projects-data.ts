@@ -127,6 +127,24 @@ export const personalProjects = [
             fr: "Tableau de bord",
             es: "Panel de control",
         },
+    },
+    {
+        title: "Zone Delivery App",
+        description: {
+            en: "Built an interactive delivery zone management app with map-based visualization. Implemented zone creation, editing, and deletion with persistent storage (localStorage), Zustand state management, dynamic zone rendering using Leaflet, and a responsive UI styled with Tailwind CSS and Material-UI components.",
+            ar: "تطوير تطبيق تفاعلي لإدارة مناطق التوصيل مع عرض مرئي على الخريطة. تم تنفيذ إنشاء وتعديل وحذف المناطق مع تخزين دائم عبر LocalStorage، وإدارة الحالة باستخدام Zustand، وعرض ديناميكي للمناطق عبر Leaflet، وواجهة مستخدم متجاوبة باستخدام Tailwind CSS وMaterial-UI.",
+            fr: "Développement d'une application interactive de gestion des zones de livraison avec visualisation cartographique. Mise en œuvre de la création, modification et suppression de zones avec stockage persistant (localStorage), gestion d'état via Zustand, rendu dynamique des zones avec Leaflet et interface réactive avec Tailwind CSS et Material-UI.",
+            es: "Desarrollo de una aplicación interactiva para la gestión de zonas de entrega con visualización en mapa. Implementación de creación, edición y eliminación de zonas con almacenamiento persistente (localStorage), gestión de estado con Zustand, renderizado dinámico de zonas mediante Leaflet y una interfaz adaptable con Tailwind CSS y Material-UI.",
+        },
+        technologies: ["React", "Zustand", "Tailwind CSS", "Leaflet", "TypeScript"],
+        liveUrl: "https://zones-delivery-app.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/zones-delivery-app",
+        category: {
+            en: "Map & Zones",
+            ar: "خرائط ومناطق",
+            fr: "Carte et zones",
+            es: "Mapa y zonas",
+        },
     }
     ,
     {
