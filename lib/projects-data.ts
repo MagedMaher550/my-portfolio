@@ -148,6 +148,78 @@ export const personalProjects = [
     }
     ,
     {
+        title: "Interactive Knowledge Map",
+        description: {
+            en: "A graph-based knowledge modeling tool built with React Flow. Users can create, connect, and manage nodes dynamically, build guided presentation flows, and explore complex relationships through an interactive canvas. Fully client-side with localStorage persistence and responsive modal architecture.",
+            ar: "أداة نمذجة معرفة قائمة على الرسوم البيانية باستخدام React Flow. يمكن للمستخدمين إنشاء وربط وإدارة العقد ديناميكيًا، وبناء عروض تقديمية موجهة، واستكشاف العلاقات المعقدة عبر لوحة تفاعلية. التطبيق يعمل بالكامل على جانب العميل مع تخزين محلي واستجابة كاملة.",
+            fr: "Outil de modélisation de connaissances basé sur des graphes construit avec React Flow. Les utilisateurs peuvent créer, connecter et gérer des nœuds dynamiquement, construire des présentations guidées et explorer des relations complexes via un canvas interactif. Entièrement côté client avec persistance localStorage.",
+            es: "Herramienta de modelado de conocimiento basada en grafos construida con React Flow. Los usuarios pueden crear, conectar y gestionar nodos dinámicamente, construir flujos de presentación guiados y explorar relaciones complejas a través de un canvas interactivo. Totalmente del lado del cliente con persistencia en localStorage.",
+        },
+        technologies: ["Next.js", "React", "React Flow", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        liveUrl: "https://interactive-knowledge-map-six.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/interactive-knowledge-map",
+        category: {
+            en: "Graph & Visualization",
+            ar: "الرسوم البيانية والتصور",
+            fr: "Graphes et Visualisation",
+            es: "Grafos y Visualización",
+        },
+    },
+    ,
+    {
+        title: "Aprende Español",
+        description: {
+            en: "A Spanish learning web app focused on vocabulary, basic grammar, and interactive exercises. Built as a frontend-only application with modern UI components and form validation.",
+            ar: "تطبيق ويب لتعلم الإسبانية يركز على المفردات والقواعد الأساسية والتمارين التفاعلية. تم بناؤه كتطبيق واجهة أمامية فقط مع مكونات حديثة والتحقق من النماذج.",
+            fr: "Application web d'apprentissage de l'espagnol axée sur le vocabulaire, la grammaire de base et des exercices interactifs. Construite uniquement en frontend avec des composants modernes et validation de formulaires.",
+            es: "Aplicación web para aprender español enfocada en vocabulario, gramática básica y ejercicios interactivos. Construida solo en frontend con componentes modernos y validación de formularios.",
+        },
+        technologies: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "React Hook Form",
+            "Zod",
+            "Radix UI"
+        ],
+        liveUrl: "https://aprende-espa-ol.vercel.app/",
+        githubUrl: null,
+        category: {
+            en: "Education",
+            ar: "التعليم",
+            fr: "Éducation",
+            es: "Educación",
+        },
+    }
+    ,
+    {
+        title: "Web3 Wallet Dashboard",
+        description: {
+            en: "A modern dark-themed Web3 dashboard integrating MetaMask with Wagmi v3. Displays real-time ETH and USDT balances on Ethereum Mainnet, includes wallet connection handling, loading skeletons, responsive UI, and secure on-chain data fetching.",
+            ar: "لوحة تحكم Web3 بواجهة داكنة حديثة تتكامل مع MetaMask باستخدام Wagmi v3. تعرض أرصدة ETH و USDT في الوقت الفعلي على شبكة Ethereum الرئيسية مع إدارة الاتصال بالمحفظة وحالات التحميل وتصميم متجاوب وجلب بيانات آمن من السلسلة.",
+            fr: "Tableau de bord Web3 moderne au thème sombre intégrant MetaMask avec Wagmi v3. Affiche les soldes ETH et USDT en temps réel sur Ethereum Mainnet avec gestion de connexion portefeuille, états de chargement et récupération sécurisée des données on-chain.",
+            es: "Panel Web3 moderno con tema oscuro que integra MetaMask usando Wagmi v3. Muestra balances en tiempo real de ETH y USDT en Ethereum Mainnet con manejo de conexión de wallet, estados de carga y obtención segura de datos on-chain."
+        },
+        technologies: [
+            "React",
+            "TypeScript",
+            "Vite",
+            "Wagmi v3",
+            "Viem",
+            "Material UI",
+            "React Query"
+        ],
+        liveUrl: "https://meta-mask-wallet-integration.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/MetaMask-wallet-integration",
+        category: {
+            en: "Web3 / Blockchain",
+            ar: "Web3 / البلوكشين",
+            fr: "Web3 / Blockchain",
+            es: "Web3 / Blockchain"
+        },
+    },
+    {
         title: "Roadn",
         description: {
             en: "Developed a mobile app for seamless customer transport across Egyptian cities and governates using Flutter for frontend and Node.js with MongoDB for backend.",
