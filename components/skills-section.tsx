@@ -1,8 +1,11 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { Badge } from "@/components/ui/badge"
 import { useLanguage } from "@/contexts/language-context"
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
 
 const skillCategories = [
   {
@@ -57,47 +60,67 @@ const skillCategories = [
   },
 ]
 
-function SkillCard({ category }: { category: (typeof skillCategories)[0] }) {
+function SkillCard({ category, index }: { category: (typeof skillCategories)[0]; index: number }) {
   const { t } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-50px" })
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-lg">
-          {t.skills.categories[category.titleKey as keyof typeof t.skills.categories]}
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          {category.skills.map((skill) => (
-            <div key={skill.name} className="space-y-2">
-              <div className="flex justify-between items-center">
-                <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                <span className="text-xs text-muted-foreground">{skill.level}%</span>
-              </div>
-              <Progress value={skill.level} className="h-2" />
-            </div>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      <Card className="card-elevated card-hover h-full">
+        <CardHeader className="pb-4">
+          <CardTitle className="text-xl font-bold">
+            {t.skills.categories[category.titleKey as keyof typeof t.skills.categories]}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-wrap gap-2">
+            {category.skills.map((skill) => (
+              <Badge
+                key={skill.name}
+                variant="secondary"
+                className="text-sm font-medium px-3 py-1.5 bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 transition-colors duration-200"
+              >
+                {skill.name}
+              </Badge>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </motion.div>
   )
 }
 
 export function SkillsSection() {
   const { t } = useLanguage()
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.skills.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.skills.subtitle}</p>
-        </div>
+    <section id="skills" ref={sectionRef} className="section-padding">
+      <div className="container-max">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            {t.skills.title}
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            {t.skills.subtitle}
+          </p>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map((category) => (
-            <SkillCard key={category.titleKey} category={category} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skillCategories.map((category, index) => (
+            <SkillCard key={category.titleKey} category={category} index={index} />
           ))}
         </div>
       </div>

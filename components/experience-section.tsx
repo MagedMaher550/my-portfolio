@@ -4,6 +4,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { CalendarDays, MapPin, Building } from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
 
 const experiences = [
   {
@@ -188,49 +191,72 @@ const experiences = [
   },
 ]
 
-function ExperienceCard({ experience }: { experience: (typeof experiences)[0] }) {
+function ExperienceCard({
+  experience,
+  index,
+}: {
+  experience: (typeof experiences)[0]
+  index: number
+}) {
   const { t, language } = useLanguage()
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, margin: "-100px" })
 
   return (
-    <Card className="relative">
-      <CardHeader>
-        <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-          <div className="space-y-2">
-            <CardTitle className="text-xl text-foreground">
-              {experience.title[language as keyof typeof experience.title]}
-            </CardTitle>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <Building className="h-4 w-4" />
-              <span className="font-medium">{experience.company}</span>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1">
-                <CalendarDays className="h-4 w-4" />
-                <span>{experience.period[language as keyof typeof experience.period]}</span>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, x: -30 }}
+      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+      transition={{ duration: 0.6, delay: index * 0.15 }}
+    >
+      <Card className="card-elevated card-hover relative">
+        <CardHeader className="pb-4">
+          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+            <div className="space-y-3 flex-1">
+              <CardTitle className="text-xl font-bold text-foreground">
+                {experience.title[language as keyof typeof experience.title]}
+              </CardTitle>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Building className="h-4 w-4 text-accent" />
+                <span className="font-semibold text-foreground">{experience.company}</span>
               </div>
-              <div className="flex items-center gap-1">
-                <MapPin className="h-4 w-4" />
-                <span>{experience.location[language as keyof typeof experience.location]}</span>
+              <div className="flex flex-col sm:flex-row gap-3 text-sm text-muted-foreground">
+                <div className="flex items-center gap-1.5">
+                  <CalendarDays className="h-4 w-4" />
+                  <span>{experience.period[language as keyof typeof experience.period]}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <MapPin className="h-4 w-4" />
+                  <span>{experience.location[language as keyof typeof experience.location]}</span>
+                </div>
               </div>
             </div>
+            <Badge
+              variant="secondary"
+              className="self-start bg-accent/10 text-accent border-accent/20 font-medium"
+            >
+              {experience.type[language as keyof typeof experience.type]}
+            </Badge>
           </div>
-          <Badge variant="secondary" className="self-start">
-            {experience.type[language as keyof typeof experience.type]}
-          </Badge>
-        </div>
-        <CardDescription className="text-muted-foreground leading-relaxed">
-          {experience.description[language as keyof typeof experience.description]}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+          <CardDescription className="text-muted-foreground leading-relaxed mt-4 text-base">
+            {experience.description[language as keyof typeof experience.description]}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
           {/* Key Achievements */}
           <div>
-            <h4 className="font-medium text-foreground mb-3">{t.experience.keyAchievements}:</h4>
-            <ul className="space-y-2">
-              {experience.achievements[language as keyof typeof experience.achievements].map((achievement, index) => (
-                <li key={index} className="text-sm text-muted-foreground flex items-start gap-2">
-                  <span className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0" />
+            <h4 className="font-semibold text-foreground mb-4 text-lg">
+              {t.experience.keyAchievements}:
+            </h4>
+            <ul className="space-y-3">
+              {experience.achievements[
+                language as keyof typeof experience.achievements
+              ].map((achievement, idx) => (
+                <li
+                  key={idx}
+                  className="text-sm text-muted-foreground flex items-start gap-3 leading-relaxed"
+                >
+                  <span className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0" />
                   <span>{achievement}</span>
                 </li>
               ))}
@@ -239,49 +265,71 @@ function ExperienceCard({ experience }: { experience: (typeof experiences)[0] })
 
           {/* Technologies */}
           <div>
-            <h4 className="font-medium text-foreground mb-3">{t.experience.technologiesUsed}:</h4>
+            <h4 className="font-semibold text-foreground mb-4 text-lg">
+              {t.experience.technologiesUsed}:
+            </h4>
             <div className="flex flex-wrap gap-2">
               {experience.technologies.map((tech) => (
-                <Badge key={tech} variant="outline" className="text-xs">
+                <Badge
+                  key={tech}
+                  variant="outline"
+                  className="text-xs font-medium border-border/50 bg-muted/30 hover:bg-muted/50 transition-colors"
+                >
                   {tech}
                 </Badge>
               ))}
             </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </motion.div>
   )
 }
 
 export function ExperienceSection() {
   const { t } = useLanguage()
+  const sectionRef = useRef(null)
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" })
 
   return (
-    <section id="experience" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">{t.experience.title}</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">{t.experience.subtitle}</p>
-        </div>
+    <section
+      id="experience"
+      ref={sectionRef}
+      className="section-padding bg-muted/20 dark:bg-muted/5"
+    >
+      <div className="container-max max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
+            {t.experience.title}
+          </h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            {t.experience.subtitle}
+          </p>
+        </motion.div>
 
-        <div className="space-y-8">
-          {experiences.map((experience, index) => (
-            <div key={experience.title.en + experience.period.en} className="relative">
-              {/* Timeline connector */}
-              {index < experiences.length - 1 && (
-                <div className="absolute left-4 top-full w-0.5 h-8 bg-border -translate-x-1/2 z-0" />
-              )}
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent/50 via-accent/30 to-transparent hidden md:block" />
 
-              {/* Timeline dot */}
-              <div className="absolute left-4 top-6 w-3 h-3 bg-accent rounded-full -translate-x-1/2 z-10 border-2 border-background" />
+          <div className="space-y-12">
+            {experiences.map((experience, index) => (
+              <div
+                key={experience.title.en + experience.period.en}
+                className="relative pl-0 md:pl-20"
+              >
+                {/* Timeline dot */}
+                <div className="absolute left-6 top-8 w-4 h-4 bg-accent rounded-full border-4 border-background shadow-lg shadow-accent/20 hidden md:block z-10" />
 
-              {/* Content */}
-              <div className="ml-12">
-                <ExperienceCard experience={experience} />
+                {/* Content */}
+                <ExperienceCard experience={experience} index={index} />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

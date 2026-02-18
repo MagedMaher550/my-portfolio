@@ -12,42 +12,64 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
 import { useLanguage } from "@/contexts/language-context";
 import { workProjects, personalProjects } from "@/lib/projects-data";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
-function ProjectCard({ project }: { project: (typeof workProjects)[0] }) {
+function ProjectCard({ project, index }: { project: (typeof workProjects)[0]; index: number }) {
   const { t, language } = useLanguage();
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <Card className="group hover:shadow-lg transition-all duration-300 border-border hover:border-accent/50">
-      <CardHeader>
-        <div className="flex items-start justify-between">
-          <div className="space-y-2">
-            <CardTitle className="text-xl group-hover:text-accent transition-colors">
-              {project.title}
-            </CardTitle>
-            <Badge variant="secondary" className="text-xs">
-              {project.category[language as keyof typeof project.category]}
-            </Badge>
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+    >
+      <Card className="group card-elevated card-hover h-full flex flex-col">
+        <CardHeader className="pb-4">
+          <div className="flex items-start justify-between gap-4">
+            <div className="space-y-3 flex-1">
+              <CardTitle className="text-xl font-bold group-hover:text-accent transition-colors duration-200">
+                {project.title}
+              </CardTitle>
+              <Badge
+                variant="secondary"
+                className="text-xs font-medium bg-accent/10 text-accent border-accent/20"
+              >
+                {project.category[language as keyof typeof project.category]}
+              </Badge>
+            </div>
           </div>
-        </div>
-        <CardDescription className="text-muted-foreground leading-relaxed">
-          {project.description[language as keyof typeof project.description]}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+          <CardDescription className="text-muted-foreground leading-relaxed text-sm mt-4">
+            {project.description[language as keyof typeof project.description]}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col flex-1 justify-between space-y-6 pt-0">
           {/* Technologies */}
           <div className="flex flex-wrap gap-2">
             {project.technologies.map((tech) => (
-              <Badge key={tech} variant="outline" className="text-xs">
+              <Badge
+                key={tech}
+                variant="outline"
+                className="text-xs font-medium border-border/50 bg-muted/30 hover:bg-muted/50 transition-colors"
+              >
                 {tech}
               </Badge>
             ))}
           </div>
 
           {/* Action Buttons */}
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2 pt-2">
             {project.liveUrl ? (
-              <Button size="sm" variant="default" asChild>
+              <Button
+                size="sm"
+                variant="default"
+                asChild
+                className="flex-1 min-w-[120px] bg-accent hover:bg-accent/90 text-accent-foreground rounded-lg transition-all duration-200"
+              >
                 <a
                   href={project.liveUrl}
                   target="_blank"
@@ -58,12 +80,22 @@ function ProjectCard({ project }: { project: (typeof workProjects)[0] }) {
                 </a>
               </Button>
             ) : (
-              <Button size="sm" variant="outline" disabled>
+              <Button
+                size="sm"
+                variant="outline"
+                disabled
+                className="flex-1 min-w-[120px] rounded-lg"
+              >
                 {t.projects.notDeployed}
               </Button>
             )}
             {project.githubUrl && (
-              <Button size="sm" variant="outline" asChild>
+              <Button
+                size="sm"
+                variant="outline"
+                asChild
+                className="flex-1 min-w-[120px] rounded-lg border-2 hover:border-accent/50 hover:bg-accent/5 transition-all duration-200"
+              >
                 <a
                   href={project.githubUrl}
                   target="_blank"
@@ -75,57 +107,82 @@ function ProjectCard({ project }: { project: (typeof workProjects)[0] }) {
               </Button>
             )}
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent>
+      </Card>
+    </motion.div>
   );
 }
 
 export function ProjectsSection() {
   const { t } = useLanguage();
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="section-padding bg-muted/20 dark:bg-muted/5"
+    >
+      <div className="container-max">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground mb-6">
             {t.projects.title}
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {t.projects.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Work Projects */}
-        <div className="mb-16">
-          <div className="mb-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-2">
+        <div className="mb-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-12"
+          >
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
               {t.projects.workProjects.title}
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               {t.projects.workProjects.subtitle}
             </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {workProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {workProjects.map((project, index) => (
+              <ProjectCard key={project.title} project={project} index={index} />
             ))}
           </div>
         </div>
 
         {/* Personal Projects */}
         <div>
-          <div className="mb-8">
-            <h3 className="text-2xl font-semibold text-foreground mb-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mb-12"
+          >
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
               {t.projects.personalProjects.title}
             </h3>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground text-lg">
               {t.projects.personalProjects.subtitle}
             </p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {personalProjects.map((project) => (
-              <ProjectCard key={project.title} project={project} />
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {personalProjects.map((project, index) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                index={index + workProjects.length}
+              />
             ))}
           </div>
         </div>
