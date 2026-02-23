@@ -24,10 +24,10 @@ const experiences = [
       es: "Alejandría, Egipto",
     },
     period: {
-      en: "Nov 2023 – present",
-      ar: "نوفمبر 2023 – حتي الآن",
-      fr: "Nov 2023 – présente",
-      es: "Nov 2023 – presente",
+      en: "Nov 2023 – Sep 2025",
+      ar: "نوفمبر 2023 – سبتمبر 2025",
+      fr: "Nov 2023 – Sep 2025",
+      es: "Nov 2023 – Sep 2025",
     },
     type: {
       en: "Full-time",
@@ -36,38 +36,38 @@ const experiences = [
       es: "Tiempo completo",
     },
     description: {
-      en: "Developed and maintained web applications across multiple projects. Built reusable, scalable UI components and optimized performance.",
-      ar: "تطوير وصيانة تطبيقات الويب عبر مشاريع متعددة. بناء مكونات واجهة المستخدم القابلة لإعادة الاستخدام والقابلة للتوسع وتحسين الأداء.",
-      fr: "Développé et maintenu des applications web sur plusieurs projets. Construit des composants UI réutilisables et évolutifs et optimisé les performances.",
-      es: "Desarrollé y mantuve aplicaciones web en múltiples proyectos. Construí componentes UI reutilizables y escalables y optimicé el rendimiento.",
+      en: "Led frontend development across multiple SaaS projects, architecting scalable web applications and reusable component systems while optimizing performance and maintainability.",
+      ar: "قيادة تطوير الواجهة الأمامية عبر مشاريع SaaS متعددة، مع تصميم تطبيقات ويب قابلة للتوسع وبناء أنظمة مكونات قابلة لإعادة الاستخدام وتحسين الأداء وقابلية الصيانة.",
+      fr: "Dirigé le développement frontend sur plusieurs projets SaaS, en architecturant des applications web évolutives et des systèmes de composants réutilisables tout en optimisant les performances et la maintenabilité.",
+      es: "Lideré el desarrollo frontend en múltiples proyectos SaaS, arquitectando aplicaciones web escalables y sistemas de componentes reutilizables mientras optimizaba el rendimiento y la mantenibilidad.",
     },
     achievements: {
       en: [
-        "Managed full application lifecycle, overseeing design to support phases",
-        "Developed clean, functional code while optimizing performance and enhancing user interfaces",
-        "Stayed updated on tech trends, ensuring improvement in development approaches",
-        "Built multiple successful projects including Ask Wafi, Evicare, and SAL platforms",
+        "Architected and delivered scalable multi-portal SaaS applications from development through production support",
+        "Engineered reusable UI component systems to standardize design patterns and accelerate feature delivery",
+        "Optimized application performance through efficient state management and API integration strategies",
+        "Delivered production-ready platforms including Ask Wafi, Evicare, AppAsap, and SAL"
       ],
       ar: [
-        "إدارة دورة حياة التطبيق الكاملة، والإشراف على مراحل التصميم إلى الدعم",
-        "تطوير كود نظيف وعملي مع تحسين الأداء وتعزيز واجهات المستخدم",
-        "البقاء محدثًا بأحدث اتجاهات التكنولوجيا، وضمان التحسين في أساليب التطوير",
-        "بناء مشاريع ناجحة متعددة بما في ذلك منصات Ask Wafi و Evicare و SAL",
+        "تصميم وتنفيذ تطبيقات SaaS متعددة البوابات قابلة للتوسع من التطوير حتى دعم الإنتاج",
+        "بناء أنظمة مكونات واجهة مستخدم قابلة لإعادة الاستخدام لتوحيد أنماط التصميم وتسريع تطوير الميزات",
+        "تحسين أداء التطبيقات من خلال إدارة الحالة بكفاءة واستراتيجيات تكامل واجهات برمجة التطبيقات",
+        "تسليم منصات جاهزة للإنتاج تشمل Ask Wafi و Evicare و AppAsap و SAL"
       ],
       fr: [
-        "Géré le cycle de vie complet de l'application, supervisant les phases de conception au support",
-        "Développé du code propre et fonctionnel tout en optimisant les performances et améliorant les interfaces utilisateur",
-        "Resté à jour sur les tendances technologiques, assurant l'amélioration des approches de développement",
-        "Construit plusieurs projets réussis incluant les plateformes Ask Wafi, Evicare et SAL",
+        "Architecturé et livré des applications SaaS multi-portails évolutives du développement au support en production",
+        "Conçu des systèmes de composants UI réutilisables pour standardiser les modèles et accélérer la livraison des fonctionnalités",
+        "Optimisé les performances applicatives via une gestion d’état efficace et des stratégies d’intégration API",
+        "Livré des plateformes prêtes pour la production incluant Ask Wafi, Evicare, AppAsap et SAL"
       ],
       es: [
-        "Gestioné el ciclo de vida completo de la aplicación, supervisando las fases de diseño al soporte",
-        "Desarrollé código limpio y funcional mientras optimizaba el rendimiento y mejoraba las interfaces de usuario",
-        "Me mantuve actualizado en tendencias tecnológicas, asegurando mejoras en los enfoques de desarrollo",
-        "Construí múltiples proyectos exitosos incluyendo las plataformas Ask Wafi, Evicare y SAL",
+        "Arquitecté y entregué aplicaciones SaaS multiportal escalables desde el desarrollo hasta el soporte en producción",
+        "Ingenieré sistemas de componentes UI reutilizables para estandarizar patrones y acelerar la entrega de funcionalidades",
+        "Optimicé el rendimiento de la aplicación mediante gestión eficiente del estado y estrategias de integración API",
+        "Entregué plataformas listas para producción incluyendo Ask Wafi, Evicare, AppAsap y SAL"
       ],
     },
-    technologies: ["React", "Redux", "Next.js", "Material UI", "TailwindCSS", "TypeScript"],
+    technologies: ["React", "Redux Toolkit", "RTK Query", "Next.js", "TypeScript", "Material UI", "TailwindCSS", "Cypress", "GitHub Actions"],
   },
   {
     title: {

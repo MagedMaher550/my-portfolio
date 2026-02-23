@@ -149,7 +149,7 @@ export function HeroSection() {
               </Button>
             </motion.div>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <a href="/cv.pdf" download="Maged-CV.pdf">
+              <a href="/cv.pdf" download="Maged_AboElkhel_Frontend_Engineer.pdf">
                 <Button
                   variant="outline"
                   size="lg"

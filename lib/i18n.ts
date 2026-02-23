@@ -144,7 +144,7 @@ export const translations: Record<Language, Translations> = {
           { name: "Arabic", level: "Native" },
           { name: "English", level: "B2" },
           { name: "French", level: "A2" },
-          { name: "Spanish", level: "A1" },
+          { name: "Spanish", level: "A2" },
         ],
       },
     },
