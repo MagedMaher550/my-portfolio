@@ -45,6 +45,10 @@ export interface Translations {
       title: string
       subtitle: string
     }
+    freelanceProjects: {
+      title: string
+      subtitle: string
+    }
     viewLive: string
     viewCode: string
     notDeployed: string
@@ -159,6 +163,10 @@ export const translations: Record<Language, Translations> = {
         title: "Personal Projects",
         subtitle: "Side projects and learning experiments",
       },
+      freelanceProjects: {
+        title: "Freelance Projects",
+        subtitle: "Client work and contract-based projects",
+      },
       viewLive: "View Live",
       viewCode: "View Code",
       notDeployed: "Not Deployed",
@@ -270,6 +278,10 @@ export const translations: Record<Language, Translations> = {
       personalProjects: {
         title: "المشاريع الشخصية",
         subtitle: "المشاريع الجانبية وتجارب التعلم",
+      },
+      freelanceProjects: {
+        title: "مشاريع العمل الحر",
+        subtitle: "مشاريع العملاء والعقود المستقلة",
       },
       viewLive: "عرض مباشر",
       viewCode: "عرض الكود",
@@ -383,6 +395,10 @@ export const translations: Record<Language, Translations> = {
         title: "Projets Personnels",
         subtitle: "Projets parallèles et expériences d'apprentissage",
       },
+      freelanceProjects: {
+        title: "Projets Freelance",
+        subtitle: "Travaux clients et projets contractuels",
+      },
       viewLive: "Voir en Direct",
       viewCode: "Voir le Code",
       notDeployed: "Non Déployé",
@@ -495,6 +511,10 @@ export const translations: Record<Language, Translations> = {
       personalProjects: {
         title: "Proyectos Personales",
         subtitle: "Proyectos paralelos y experimentos de aprendizaje",
+      },
+      freelanceProjects: {
+        title: "Proyectos Freelance",
+        subtitle: "Trabajos para clientes y proyectos por contrato",
       },
       viewLive: "Ver en Vivo",
       viewCode: "Ver Código",

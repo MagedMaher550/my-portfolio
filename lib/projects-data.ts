@@ -238,3 +238,60 @@ export const personalProjects = [
         },
     },
 ]
+
+export const freelanceProjects = [
+    {
+        title: "Gutters Roof",
+        description: {
+            en: "Business website for roofing and gutter services focused on lead generation and service presentation.",
+            ar: "موقع خدمات الأسقف والمزاريب يركز على جذب العملاء وعرض الخدمات.",
+            fr: "Site professionnel pour services de toiture et gouttières axé sur la génération de prospects.",
+            es: "Sitio profesional de servicios de techos y canaletas enfocado en generación de clientes.",
+        },
+        technologies: ["Next.js", "React", "TailwindCSS"],
+        liveUrl: "https://www.guttersroof.com/",
+        githubUrl: null,
+        category: {
+            en: "Freelance",
+            ar: "عمل حر",
+            fr: "Freelance",
+            es: "Freelance",
+        },
+    },
+    {
+        title: "Meyan Systems",
+        description: {
+            en: "Corporate website for a technology solutions company showcasing services and business offerings.",
+            ar: "موقع شركة حلول تقنية لعرض الخدمات والأعمال.",
+            fr: "Site d'entreprise pour une société de solutions technologiques.",
+            es: "Sitio corporativo para una empresa de soluciones tecnológicas.",
+        },
+        technologies: ["Next.js", "React", "TailwindCSS"],
+        liveUrl: "https://www.meyansystems.com/",
+        githubUrl: null,
+        category: {
+            en: "Freelance",
+            ar: "عمل حر",
+            fr: "Freelance",
+            es: "Freelance",
+        },
+    },
+    {
+        title: "Nasif Decore",
+        description: {
+            en: "Interior design portfolio website highlighting services and previous work with a modern UI.",
+            ar: "موقع عرض أعمال ديكور داخلي بواجهة حديثة لعرض الخدمات والمشاريع السابقة.",
+            fr: "Site de portfolio de design intérieur mettant en valeur les services et les projets.",
+            es: "Sitio de portafolio de diseño interior que muestra servicios y trabajos previos.",
+        },
+        technologies: ["Next.js", "React", "TailwindCSS"],
+        liveUrl: "https://nasif-decore-site.vercel.app/",
+        githubUrl: null,
+        category: {
+            en: "Freelance",
+            ar: "عمل حر",
+            fr: "Freelance",
+            es: "Freelance",
+        },
+    },
+];
