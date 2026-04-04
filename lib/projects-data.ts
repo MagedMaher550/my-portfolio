@@ -93,6 +93,29 @@ export const personalProjects = [
         },
     },
     {
+        title: "Speak Coptic",
+        description: {
+            en: "A Coptic language learning platform focused on structured lessons, pronunciation, and interactive content. Features organized lesson flows, multilingual support, and a clean, scalable UI for educational use.",
+            ar: "منصة لتعلم اللغة القبطية تركز على الدروس المنظمة والنطق والمحتوى التفاعلي. تتميز بتدفق دروس منظم ودعم متعدد اللغات وواجهة نظيفة قابلة للتوسع.",
+            fr: "Plateforme d'apprentissage du copte axée sur des leçons structurées, la prononciation et du contenu interactif. Interface propre et évolutive avec support multilingue.",
+            es: "Plataforma de aprendizaje del copto centrada en lecciones estructuradas, pronunciación y contenido interactivo. Interfaz limpia y escalable con soporte multilingüe.",
+        },
+        technologies: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS"
+        ],
+        liveUrl: "https://speakcoptic.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/speak-coptic-web",
+        category: {
+            en: "Education",
+            ar: "التعليم",
+            fr: "Éducation",
+            es: "Educación",
+        },
+    },
+    {
         title: "Auction System",
         description: {
             en: "Built a secure system with user authentication, product listing, and bidding. Added dashboards for users to track bids and history with transparent bidding mechanism.",
