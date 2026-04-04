@@ -107,7 +107,7 @@ export const personalProjects = [
             "Tailwind CSS"
         ],
         liveUrl: "https://speakcoptic.vercel.app/",
-        githubUrl: "https://github.com/MagedMaher550/speak-coptic-web",
+        // githubUrl: "https://github.com/MagedMaher550/speak-coptic-web",
         category: {
             en: "Education",
             ar: "التعليم",
