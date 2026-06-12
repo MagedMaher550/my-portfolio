@@ -57,21 +57,47 @@ export const workProjects = [
 
 export const personalProjects = [
     {
-        title: "Learn Spanish",
+        title: "Aprende Español",
         description: {
-            en: "A language learning app with interactive lessons and practice modules. Implemented clean UI, responsive layouts, and state management for an engaging learning experience.",
-            ar: "تطبيق تعلم اللغة مع دروس تفاعلية ووحدات ممارسة. تنفيذ واجهة مستخدم نظيفة وتخطيطات متجاوبة وإدارة الحالة لتجربة تعلم جذابة.",
-            fr: "Application d'apprentissage des langues avec leçons interactives et modules de pratique. Interface utilisateur propre implémentée, mises en page responsives et gestion d'état.",
-            es: "Aplicación de aprendizaje de idiomas con lecciones interactivas y módulos de práctica. UI limpia implementada, diseños responsivos y gestión de estado.",
+            en: "A Spanish learning web app focused on vocabulary, basic grammar, and interactive exercises. Built as a frontend-only application with modern UI components and form validation.",
+            ar: "تطبيق ويب لتعلم الإسبانية يركز على المفردات والقواعد الأساسية والتمارين التفاعلية. تم بناؤه كتطبيق واجهة أمامية فقط مع مكونات حديثة والتحقق من النماذج.",
+            fr: "Application web d'apprentissage de l'espagnol axée sur le vocabulaire, la grammaire de base et des exercices interactifs. Construite uniquement en frontend avec des composants modernes et validation de formulaires.",
+            es: "Aplicación web para aprender español enfocada en vocabulario, gramática básica y ejercicios interactivos. Construida solo en frontend con componentes modernos y validación de formularios.",
         },
-        technologies: ["Next.js", "Redux", "Material UI", "CSS", "TailwindCSS"],
-        liveUrl: "https://learn-spanish-ashen.vercel.app/",
-        githubUrl: "https://github.com/MagedMaher550/Learn-Spanish",
+        technologies: [
+            "Next.js",
+            "React",
+            "TypeScript",
+            "Tailwind CSS",
+            "React Hook Form",
+            "Zod",
+            "Radix UI"
+        ],
+        liveUrl: "https://aprende-espa-ol.vercel.app/",
+        githubUrl: null,
         category: {
             en: "Education",
             ar: "التعليم",
             fr: "Éducation",
             es: "Educación",
+        },
+    },
+    {
+        title: "Interactive Knowledge Map",
+        description: {
+            en: "A graph-based knowledge modeling tool built with React Flow. Users can create, connect, and manage nodes dynamically, build guided presentation flows, and explore complex relationships through an interactive canvas. Fully client-side with localStorage persistence and responsive modal architecture.",
+            ar: "أداة نمذجة معرفة قائمة على الرسوم البيانية باستخدام React Flow. يمكن للمستخدمين إنشاء وربط وإدارة العقد ديناميكيًا، وبناء عروض تقديمية موجهة، واستكشاف العلاقات المعقدة عبر لوحة تفاعلية. التطبيق يعمل بالكامل على جانب العميل مع تخزين محلي واستجابة كاملة.",
+            fr: "Outil de modélisation de connaissances basé sur des graphes construit avec React Flow. Les utilisateurs peuvent créer, connecter et gérer des nœuds dynamiquement, construire des présentations guidées et explorer des relations complexes via un canvas interactif. Entièrement côté client avec persistance localStorage.",
+            es: "Herramienta de modelado de conocimiento basada en grafos construida con React Flow. Los usuarios pueden crear, conectar y gestionar nodos dinámicamente, construir flujos de presentación guiados y explorar relaciones complejas a través de un canvas interactivo. Totalmente del lado del cliente con persistencia en localStorage.",
+        },
+        technologies: ["Next.js", "React", "React Flow", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        liveUrl: "https://interactive-knowledge-map-six.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/interactive-knowledge-map",
+        category: {
+            en: "Graph & Visualization",
+            ar: "الرسوم البيانية والتصور",
+            fr: "Graphes et Visualisation",
+            es: "Grafos y Visualización",
         },
     },
     {
@@ -170,52 +196,27 @@ export const personalProjects = [
         },
     }
     ,
-    {
-        title: "Interactive Knowledge Map",
-        description: {
-            en: "A graph-based knowledge modeling tool built with React Flow. Users can create, connect, and manage nodes dynamically, build guided presentation flows, and explore complex relationships through an interactive canvas. Fully client-side with localStorage persistence and responsive modal architecture.",
-            ar: "أداة نمذجة معرفة قائمة على الرسوم البيانية باستخدام React Flow. يمكن للمستخدمين إنشاء وربط وإدارة العقد ديناميكيًا، وبناء عروض تقديمية موجهة، واستكشاف العلاقات المعقدة عبر لوحة تفاعلية. التطبيق يعمل بالكامل على جانب العميل مع تخزين محلي واستجابة كاملة.",
-            fr: "Outil de modélisation de connaissances basé sur des graphes construit avec React Flow. Les utilisateurs peuvent créer, connecter et gérer des nœuds dynamiquement, construire des présentations guidées et explorer des relations complexes via un canvas interactif. Entièrement côté client avec persistance localStorage.",
-            es: "Herramienta de modelado de conocimiento basada en grafos construida con React Flow. Los usuarios pueden crear, conectar y gestionar nodos dinámicamente, construir flujos de presentación guiados y explorar relaciones complejas a través de un canvas interactivo. Totalmente del lado del cliente con persistencia en localStorage.",
-        },
-        technologies: ["Next.js", "React", "React Flow", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        liveUrl: "https://interactive-knowledge-map-six.vercel.app/",
-        githubUrl: "https://github.com/MagedMaher550/interactive-knowledge-map",
-        category: {
-            en: "Graph & Visualization",
-            ar: "الرسوم البيانية والتصور",
-            fr: "Graphes et Visualisation",
-            es: "Grafos y Visualización",
-        },
-    },
+
     ,
     {
-        title: "Aprende Español",
+        title: "Learn Spanish",
         description: {
-            en: "A Spanish learning web app focused on vocabulary, basic grammar, and interactive exercises. Built as a frontend-only application with modern UI components and form validation.",
-            ar: "تطبيق ويب لتعلم الإسبانية يركز على المفردات والقواعد الأساسية والتمارين التفاعلية. تم بناؤه كتطبيق واجهة أمامية فقط مع مكونات حديثة والتحقق من النماذج.",
-            fr: "Application web d'apprentissage de l'espagnol axée sur le vocabulaire, la grammaire de base et des exercices interactifs. Construite uniquement en frontend avec des composants modernes et validation de formulaires.",
-            es: "Aplicación web para aprender español enfocada en vocabulario, gramática básica y ejercicios interactivos. Construida solo en frontend con componentes modernos y validación de formularios.",
+            en: "A language learning app with interactive lessons and practice modules. Implemented clean UI, responsive layouts, and state management for an engaging learning experience.",
+            ar: "تطبيق تعلم اللغة مع دروس تفاعلية ووحدات ممارسة. تنفيذ واجهة مستخدم نظيفة وتخطيطات متجاوبة وإدارة الحالة لتجربة تعلم جذابة.",
+            fr: "Application d'apprentissage des langues avec leçons interactives et modules de pratique. Interface utilisateur propre implémentée, mises en page responsives et gestion d'état.",
+            es: "Aplicación de aprendizaje de idiomas con lecciones interactivas y módulos de práctica. UI limpia implementada, diseños responsivos y gestión de estado.",
         },
-        technologies: [
-            "Next.js",
-            "React",
-            "TypeScript",
-            "Tailwind CSS",
-            "React Hook Form",
-            "Zod",
-            "Radix UI"
-        ],
-        liveUrl: "https://aprende-espa-ol.vercel.app/",
-        githubUrl: null,
+        technologies: ["Next.js", "Redux", "Material UI", "CSS", "TailwindCSS"],
+        liveUrl: "https://learn-spanish-ashen.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/Learn-Spanish",
         category: {
             en: "Education",
             ar: "التعليم",
             fr: "Éducation",
             es: "Educación",
         },
-    }
-    ,
+    },
+
     {
         title: "Web3 Wallet Dashboard",
         description: {
