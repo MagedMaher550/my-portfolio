@@ -121,7 +121,6 @@ export const personalProjects = [
             "i18next",
         ],
         liveUrl: "https://nadafly.vercel.app/",
-        githubUrl: "https://github.com/MagedMaher550/nadafly",
         category: {
             en: "Service Platform",
             ar: "منصة خدمات",
