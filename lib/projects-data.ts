@@ -101,6 +101,35 @@ export const personalProjects = [
         },
     },
     {
+        title: "Nadafly",
+        description: {
+            en: "A modern cleaning services booking platform built for the Egyptian market. Features a guided multi-step booking experience, dynamic price and duration estimation, bilingual support (Arabic/English), RTL/LTR layouts, responsive design, favorites, booking management, and local persistence. Designed with a scalable frontend architecture ready for future backend integration.",
+            ar: "منصة حديثة لحجز خدمات التنظيف موجهة للسوق المصري. تتضمن تجربة حجز متعددة الخطوات، وتقديرًا ديناميكيًا للأسعار ومدة الخدمة، ودعمًا للغتين العربية والإنجليزية، وواجهات RTL/LTR، وتصميمًا متجاوبًا، وإدارة المفضلة والحجوزات، مع حفظ البيانات محليًا. تم تصميمها بهيكل واجهة أمامية قابل للتوسع وجاهز للتكامل مع الخلفية مستقبلاً.",
+            fr: "Plateforme moderne de réservation de services de nettoyage conçue pour le marché égyptien. Elle comprend un parcours de réservation en plusieurs étapes, une estimation dynamique du prix et de la durée, un support bilingue (arabe/anglais), des interfaces RTL/LTR, un design responsive, la gestion des favoris et des réservations, ainsi qu'une persistance locale. Architecture frontend évolutive prête pour une future intégration backend.",
+            es: "Plataforma moderna de reserva de servicios de limpieza diseñada para el mercado egipcio. Incluye un flujo de reserva guiado de varios pasos, estimación dinámica de precios y duración, soporte bilingüe (árabe/inglés), diseño RTL/LTR, interfaz adaptable, gestión de favoritos y reservas, y persistencia local. Diseñada con una arquitectura frontend escalable preparada para futuras integraciones backend.",
+        },
+        technologies: [
+            "React",
+            "TypeScript",
+            "Vite",
+            "TanStack Router",
+            "Tailwind CSS",
+            "shadcn/ui",
+            "React Hook Form",
+            "Zod",
+            "Framer Motion",
+            "i18next",
+        ],
+        liveUrl: "https://nadafly.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/nadafly",
+        category: {
+            en: "Service Platform",
+            ar: "منصة خدمات",
+            fr: "Plateforme de Services",
+            es: "Plataforma de Servicios",
+        },
+    },
+    {
         title: "Guttin Language",
         description: {
             en: "A complete custom-language app with its own alphabet translator and English converter. Features bi-directional translation between Guttin symbols and English.",
