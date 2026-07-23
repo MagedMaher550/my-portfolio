@@ -101,6 +101,32 @@ export const personalProjects = [
         },
     },
     {
+        title: "Security Bundle Builder",
+        description: {
+            en: "A production-style multi-step security system configurator built from a Figma design as a frontend engineering challenge. Features a data-driven architecture, synchronized state management with Zustand, variant-specific quantity tracking, live pricing calculations, responsive accordion workflow, persistent cart restoration via localStorage, and a fully responsive review panel.",
+            ar: "منشئ احترافي متعدد الخطوات لتكوين نظام أمني، تم تطويره من تصميم Figma كتحدٍ هندسي للواجهة الأمامية. يتضمن بنية تعتمد على البيانات، وإدارة حالة متزامنة باستخدام Zustand، وتتبع الكميات لكل متغير، وحسابات أسعار مباشرة، وسير عمل Accordion متجاوب، واستعادة النظام المحفوظ عبر LocalStorage، ولوحة مراجعة متجاوبة بالكامل.",
+            fr: "Configurateur de système de sécurité multi-étapes développé à partir d'une maquette Figma dans le cadre d'un défi d'ingénierie Frontend. Il comprend une architecture pilotée par les données, une gestion d'état synchronisée avec Zustand, un suivi des quantités par variante, un calcul dynamique des prix, un workflow en accordéon responsive, une persistance via localStorage et un panneau récapitulatif entièrement responsive.",
+            es: "Configurador de sistemas de seguridad de varios pasos desarrollado a partir de un diseño de Figma como reto de ingeniería Frontend. Incluye una arquitectura basada en datos, gestión de estado sincronizada con Zustand, seguimiento independiente de cantidades por variante, cálculos dinámicos de precios, flujo responsive mediante acordeón, persistencia con localStorage y un panel de resumen totalmente adaptable."
+        },
+        technologies: [
+            "React 19",
+            "TypeScript",
+            "Vite",
+            "Tailwind CSS v4",
+            "Zustand",
+            "React Icons",
+            "LocalStorage"
+        ],
+        liveUrl: "https://security-bundle-builder.vercel.app/",
+        githubUrl: "https://github.com/MagedMaher550/security-bundle-builder",
+        category: {
+            en: "Frontend Engineering",
+            ar: "هندسة الواجهات الأمامية",
+            fr: "Ingénierie Frontend",
+            es: "Ingeniería Frontend"
+        }
+    },
+    {
         title: "Nadafly",
         description: {
             en: "A modern cleaning services booking platform built for the Egyptian market. Features a guided multi-step booking experience, dynamic price and duration estimation, bilingual support (Arabic/English), RTL/LTR layouts, responsive design, favorites, booking management, and local persistence. Designed with a scalable frontend architecture ready for future backend integration.",
