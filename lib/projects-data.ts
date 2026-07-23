@@ -118,7 +118,6 @@ export const personalProjects = [
             "LocalStorage"
         ],
         liveUrl: "https://security-bundle-builder.vercel.app/",
-        githubUrl: "https://github.com/MagedMaher550/security-bundle-builder",
         category: {
             en: "Frontend Engineering",
             ar: "هندسة الواجهات الأمامية",
